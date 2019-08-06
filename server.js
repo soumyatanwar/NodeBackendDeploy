@@ -16,16 +16,16 @@ const PORT = process.env.PORT || 2323
 
 io.on('connection', function(socket){
     console.log('Socket created: '+ socket.id)
-    socket.on('msg', function(data){
-        socket.broadcast.emit('msg', {
-            sender: users[socket.id],
-            message: data.message
-        })
-    })
-    socket.on('login', function(data){
-        users[socket.id] = data.username
-        socket.emit('logged_in')
-    })
+    // socket.on('msg', function(data){
+    //     socket.broadcast.emit('msg', {
+    //         sender: users[socket.id],
+    //         message: data.message
+    //     })
+    // })
+    // socket.on('login', function(data){
+    //     users[socket.id] = data.username
+    //     socket.emit('logged_in')
+    // })
     socket.on('play', function(data){
         io.emit('play',data)
     })
